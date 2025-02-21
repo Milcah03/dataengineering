@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Netflix Movies and TV Shows | Kaggle</title>
+  <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+  <meta name="description" content="Listings of movies and tv shows on Netflix" />
+    <meta name="keywords" content="arts and entertainment,movies and tv shows,data visualization,classification,exploratory data analysis" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <meta name="theme-color" content="#008ABC" />
+  <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" type="text/javascript">
+    window["pageRequestStartTime"] = 1740146463284;
+    window["pageRequestEndTime"] = 1740146463388;
+    window["initialPageLoadStartTime"] = new Date().getTime();
+  </script>
+  <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" id="gsi-client" src="https://accounts.google.com/gsi/client" async defer></script>
+  <script nonce="rRZKR5ddVGYduHUpJ4ODPg==">window.KAGGLE_JUPYTERLAB_PATH = "/static/assets/jupyterlab-v4/jupyterlab-index-f3d4c6b5e05c977e21e0.html";</script>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" /><link rel="preconnect" href="https://stats.g.doubleclick.net" /><link rel="preconnect" href="https://storage.googleapis.com" /><link rel="preconnect" href="https://apis.google.com" />
+    <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" id="dynamic-favicon" />
+  <link rel="manifest" href="/static/json/manifest.json" crossorigin="use-credentials">
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Symbols:FILL@0..1&display=block"
+    rel="preload" as="style" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,400i,500,500i,600,600i,700,700i&display=swap"
+    rel="stylesheet" media="print" id="async-google-font-1" />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Symbols:FILL@0..1&display=block"
+    rel="stylesheet" media="print" id="async-google-font-2" />
+  <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" type="text/javascript">
+    const styleSheetIds = ["async-google-font-1", "async-google-font-2"];
+    styleSheetIds.forEach(function (id) {
+      document.getElementById(id).addEventListener("load", function() {
+        this.media = "all";
+      });
+    });
+  </script>
+
+
+    <link rel="canonical" href="https://www.kaggle.com/datasets/anandshaw2001/netflix-movies-and-tv-shows" />
+    <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=2d4e7ec4eb689d926191" />
+
+  
+    
+ 
+      <script nonce="rRZKR5ddVGYduHUpJ4ODPg==">
+        try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
+        d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
+        y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
+        h.start=1*new Date;h.end=i=function(){y.forEach(x => x<d.cssRules.length ? d.deleteRule(x) : {})};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch(ex){}
+    </script>
+    <script nonce="rRZKR5ddVGYduHUpJ4ODPg==">
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-T7QHS60L4Q', {
+            'optimize_id': 'GTM-52LNT9S',
+            'displayFeaturesTask': null,
+            'send_page_view': false,
+            'content_group1': 'Datasets'
+        });
+    </script>
+    <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" async src="https://www.googletagmanager.com/gtag/js?id=G-T7QHS60L4Q"></script>
+
+  
+    
+    <meta property="og:url" content="https://www.kaggle.com/datasets/anandshaw2001/netflix-movies-and-tv-shows" />
+    <meta property="og:title" content="Netflix Movies and TV Shows" />
+    <meta property="og:description" content="Listings of movies and tv shows on Netflix" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/kaggle-datasets-images/6417893/10362470/3d1aafbbfbf12c038cd9e5fa97f07d61/dataset-card.jpeg?t=2025-01-03-10-41-54" />
+    <meta property="fb:app_id" content="2665027677054710" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@kaggledatasets" />
+
+
+  <meta name="twitter:site" content="@Kaggle" /> 
+  
+    
+            <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"Netflix Movies and TV Shows","description":"# Don't forget to hit the upvote🙏🙏\n\nAbout this Dataset: Netflix is one of the most popular media and video streaming platforms. They have over 8k+ movies or tv shows available on their platform, as of mid-2024, they have over 282 million Subscribers globally. This tabular dataset consists of listings of all the movies and tv shows available on Netflix, along with details such as - cast, directors, ratings, release year, duration more.\n\n\n\n\n\n\n\n## **Columns and Descriptions:**\n\n###-  ***`show_id:`*** Unique identifier for each show (s1, s2).\n\n###-  ***`type:`*** Specifies whether the title is a \"Movie\" or \"TV Show\".\n\n###-  ***`title:`*** The name of the Netflix title.\n\n###-  ***`director:`*** The director of the title\n\n###-  ***`cast:`*** The main actors involved in the title.\n\n###- ***`country:`*** The country where the title was produced.\n\n###- ***`date_added:`*** The date when the title was added to Netflix.\n\n###- ***`release_year:`*** The year the title was originally released.\n\n###- ***`rating:`*** The content rating (\"PG-13\", \"TV-MA\").\n\n###- ***`duration:`*** Duration of the movie (in minutes) or the number of seasons for TV shows.\n\n###- ***`listed_in:`*** Categories or genres the title falls under (\"Documentaries\", \"TV Dramas\").\n\n###- ***`description:`*** The summary description","url":"https://www.kaggle.com/anandshaw2001/netflix-movies-and-tv-shows","version":1,"keywords":["subject, arts and entertainment","subject, arts and entertainment, movies and tv shows","technique, data visualization","task, classification","technique, exploratory data analysis"],"license":{"@type":"CreativeWork","name":"CC0: Public Domain","url":"https://creativecommons.org/publicdomain/zero/1.0/"},"identifier":["6417893"],"includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Person","name":"Anand Shaw","url":"https://www.kaggle.com/anandshaw2001","image":"https://storage.googleapis.com/kaggle-avatars/thumbnails/13987980-kg.jpg?t=2025-01-29-13-59-02"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com/datasets/anandshaw2001/netflix-movies-and-tv-shows/download?datasetVersionNumber=1","contentSize":"1400865 bytes"}],"commentCount":1,"dateModified":"2025-01-03T10:33:01.743Z","discussionUrl":"https://www.kaggle.com/anandshaw2001/netflix-movies-and-tv-shows/discussion","alternateName":"Listings of movies and tv shows on Netflix","isAccessibleForFree":true,"thumbnailUrl":"https://storage.googleapis.com/kaggle-datasets-images/6417893/10362470/3d1aafbbfbf12c038cd9e5fa97f07d61/dataset-card.jpeg?t=2025-01-03-10-41-54","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":1},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":20890},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":87425},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":507}]}</script>
+        
+
+  
+    
+
+  
+    
+
+
+    <script nonce="rRZKR5ddVGYduHUpJ4ODPg==">window['useKaggleAnalytics'] = true;</script>
+
+  <script id="gapi-target" nonce="rRZKR5ddVGYduHUpJ4ODPg==" src="https://apis.google.com/js/api.js" defer
+    async></script>
+  <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" src="/static/assets/runtime.js?v=4a70b3afba2d46a7b1bb"></script>
+  <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" src="/static/assets/vendor.js?v=a62013a985d655b5d6e4"></script>
+  <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" src="/static/assets/app.js?v=9e417f8e2697e977218b"></script>
+    <script nonce="rRZKR5ddVGYduHUpJ4ODPg==" type="text/javascript">
+      window.kaggleStackdriverConfig = {
+        key: 'AIzaSyA4eNqUdRRskJsCZWVz-qL655Xa5JEMreE',
+        projectId: 'kaggle-161607',
+        service: 'web-fe',
+        version: 'ci',
+        userId: '0'
+      }
+    </script>
+</head>
+<body>
+  <div id="root">
+    
+
+
+
+
+
+
+
+
+<script nonce="rRZKR5ddVGYduHUpJ4ODPg==" type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    preferredFont: "TeX",
+    availableFonts: ["STIX", "TeX"],
+    linebreaks: {
+    automatic: true
+    },
+    EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+    inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    processEscapes: true,
+    ignoreClass: "tex2jax_ignore|dno"
+    },
+    TeX: {
+    noUndefined: {
+    attributes: {
+    mathcolor: "red",
+    mathbackground: "#FFEEEE",
+    mathsize: "90%"
+    }
+    }
+    },
+    Macros: {
+    href: "{}"
+    },
+    skipStartupTypeset: true,
+    messageStyle: "none",
+    extensions: ["Safe.js"],
+    });
+</script>
+<script type="text/javascript" nonce="rRZKR5ddVGYduHUpJ4ODPg==">
+  window.addEventListener("DOMContentLoaded", () => {
+    const head = document.getElementsByTagName("head")[0];
+    const lib = document.createElement("script");
+    lib.type = "text/javascript";
+    // Always use the production asset in local dev, which is served from GCS. We tried to proxy and / or serve this
+    // in a better way in localhost, but it didn't work out. See b/328073416#comment8 for details.
+    const forceProdHost = window.location.hostname === "localhost";
+    lib.src = `${forceProdHost ? "https://www.kaggle.com" : ""}/static/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML`;
+    head.appendChild(lib);
+  });
+</script>
+
+
+
+
+
+
+
+
+
+  </div>
+</body>
+</html>
