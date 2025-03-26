@@ -1,0 +1,52 @@
+--import the data from S3
+--check if the table exists
+select*
+from public.trend_shop
+limit 3;
+
+--Create snowflake
+create table factShoppingTrend ( ID INT, age INT, review_rating real);
+
+select* from  factShoppingTrend;
+
+--Load data
+insert into factShoppingTrend (ID, age, review_rating)
+select customer_id, age, review_rating
+from public.trend_shop
+where customer_id is not null;
+
+
+--Create dimensional table 
+ create table dimension (ID INT, category VARCHAR(50), season VARCHAR(50), frequency_of_purchase VARCHAR(50));
+
+ SELECT* FROM dimension;
+
+ --Load data into table
+ insert into dimension (ID, category, season, frequency_of_purchase)
+select customer_id, category, season, frequency_of_purchases
+from public.trend_shop
+where customer_id is not null;
+
+--business questions 
+--Category with high review rating
+select dimension.category, factShoppingTrend.review_rating
+from factShoppingTrend
+join dimension
+on dimension.ID = factShoppingTrend.ID
+order by review_rating DESC
+limit 1;
+
+--Most used frequency of purchase per each season
+WITH RankedFrequencies AS (
+    SELECT 
+        season, 
+        frequency_of_purchase, 
+        COUNT(*) AS usage_count,
+        RANK() OVER (PARTITION BY season ORDER BY COUNT(*) DESC) AS rank
+    FROM dimension
+    GROUP BY season, frequency_of_purchase
+)
+SELECT season, frequency_of_purchase, usage_count
+FROM RankedFrequencies
+WHERE rank = 1;
+
